@@ -68,8 +68,15 @@
             
         ];
 
+        let lastIndex = -1;
+        
         function spinRoulette() {
-            const randomIndex = Math.floor(Math.random() * items.length);
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * items.length);
+            } while (randomIndex === lastIndex);
+            
+            lastIndex = randomIndex;
             const selectedItem = items[randomIndex];
             
             document.getElementById("image-display").src = selectedItem.image;
