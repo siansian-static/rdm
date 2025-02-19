@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>락스타돌리기</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        #roulette-container {
+            text-align: center;
+        }
+        #image-display {
+            width: 500px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #ff6464;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #680000;
+        }
+    </style>
+</head>
+<body>
+    <div id="roulette-container">
+        <img id="image-display" src="_3.jpg">
+        <p id="text-display">당신의 락스타를 선택하세요.</p>
+        <button onclick="spinRoulette()">누르셈</button>
+    </div>
+
+    <script>
+        const items = [
+            { text: "치노 모레노/데프톤즈", image: "치노모레노_데프톤즈.jpg" },
+            { text: "롭 핼포드/주다스 프리스트", image: "롭핼포드_주다스프리스트.jpg" },
+            { text: "빌리 조 암스트롱/그린데이", image: "빌리조암스트롱_그린데이.jpg" },
+            { text: "알렉스터너/악틱몽키즈", image: "알렉스터너_악틱몽키즈.jpg" },
+            { text: "세르지 탄키안/시스템 오브 어 다운", image: "세르지탄키안_시스템오브어다운.jpg" },
+            { text: "톰 요크/라디오헤드", image: "톰요크_라디오헤드.jpg" },
+            { text: "크리스 모션레스/모션레스 인 화이트", image: "크리스모션레스_모션레스인화이트.jpg" },
+            { text: "베셀/슬립 토큰", image: "베셀_슬립토큰.jpg" },
+            { text: "노아 세바스찬/배드 오멘스", image: "노아세바스찬_배드오멘스.jpg" },
+            { text: "올리버 사익스/브링 미 더 호라이즌", image: "올리버사익스_브링미더호라이즌.jpg" },
+
+            
+        ];
+
+        function spinRoulette() {
+            const randomIndex = Math.floor(Math.random() * items.length);
+            const selectedItem = items[randomIndex];
+            
+            document.getElementById("image-display").src = selectedItem.image;
+            document.getElementById("text-display").innerText = selectedItem.text;
+        }
+    </script>
+</body>
+</html>
